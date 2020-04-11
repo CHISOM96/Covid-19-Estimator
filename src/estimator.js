@@ -1,10 +1,10 @@
 const covid19ImpactEstimator = (data) => {
   const {
-    region,
+    // region,
     reportedCases,
     periodType,
-    timeToElapse,
-    totalHospitalBeds
+    timeToElapse
+    // totalHospitalBeds
   } = data;
     // Challenge 1
 
