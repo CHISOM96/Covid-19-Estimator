@@ -2,7 +2,7 @@ const covid19ImpactEstimator = (data) => {
   const {
     // region,
     reportedCases,
-    // periodType,
+    periodType,
     timeToElapse
     // totalHospitalBeds
   } = data;
@@ -21,7 +21,7 @@ const covid19ImpactEstimator = (data) => {
   };
     // Infection rate
 
-  const durationCheck = (periodType, duration) => {
+  const durationCheck = (period, duration) => {
     let infectionRate = 2 ** Math.floor(duration / 3);
     if (periodType === 'weeks') {
       infectionRate = 2 ** Math.floor((duration * 7) / 3);
