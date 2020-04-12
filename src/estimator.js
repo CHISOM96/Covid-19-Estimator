@@ -6,44 +6,63 @@ const covid19ImpactEstimator = (data) => {
     timeToElapse
     // totalHospitalBeds
   } = data;
-    // Challenge 1
 
-  // Impact computation
-
-  const impact = {
-    currentlyInfected: reportedCases * 10
+  const dataToBeReturned = {
+    data: {},
+    impact: {},
+    severeImpact: {}
   };
+  dataToBeReturned.data = data;
+  // Challenge 1
 
-  // Severe Impact
 
-  const severeImpact = {
-    currentlyInfected: reportedCases * 50
-  };
-    // Infection rate
+  // Infection rate
 
   const durationCheck = (period, duration) => {
-    let infectionRate = 2 ** Math.floor(duration / 3);
-    if (periodType === 'weeks') {
-      infectionRate = 2 ** Math.floor((duration * 7) / 3);
-    } else if (periodType === 'months') {
-      infectionRate = 2 ** Math.floor((duration * 30) / 3);
+    if (periodType === 'days') {
+      return duration;
     }
-    return infectionRate;
+    if (periodType === 'weeks') {
+      return duration * 7;
+    }
+    if (periodType === 'months') {
+      return duration * 30;
+    }
+    return duration;
   };
-    /* const durationCheck = (periodType, duration) => {
-    let infectionRate = Math.pow(2, Math.floor(duration / 3));
-    if (periodType === 'weeks') {
-        infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
-    } else if (periodType === 'months') {
-        infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
-    }
-    return infectionRate;
-    };
-    This also works */
 
-  const getDuration = durationCheck(periodType, timeToElapse);
+  const totalDays = durationCheck(periodType, timeToElapse);
+  const periodFactor = Math.floor(totalDays / 3);
+  const infectionRate = 2 ** periodFactor;
 
-  impact.infectionsByRequestedtime = impact.currentlyInfected * getDuration;
-  severeImpact.infectionsByRequestedtime = severeImpact.currentlyInfected * getDuration;
+  // impact
+  const currentlyInfectedImpact = reportedCases * 10;
+  const infectionsByRequestedTimeImpact = currentlyInfectedImpact * infectionRate;
+
+  dataToBeReturned.impact.currentlyInfected = currentlyInfectedImpact;
+  dataToBeReturned.impact.infectionsByRequestedTime = infectionsByRequestedTimeImpact;
+
+  // severe impact
+  const currentlyInfectedSevere = reportedCases * 50;
+  const infectionsByRequestedTimeSevere = currentlyInfectedSevere * infectionRate;
+
+  dataToBeReturned.severeImpact.currentlyInfected = currentlyInfectedSevere;
+  dataToBeReturned.severeImpact.infectionsByRequestedTime = infectionsByRequestedTimeSevere;
+
+
+  /* const durationCheck = (periodType, duration) => {
+            let infectionRate = Math.pow(2, Math.floor(duration / 3));
+            if (periodType === 'weeks') {
+                infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
+            } else if (periodType === 'months') {
+                infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
+            }
+            return infectionRate;
+            };
+            This also works */
+
+
+  // impact.infectionsByRequestedtime = impact.currentlyInfected * infectionRate;
+  // severeImpact.infectionsByRequestedtime = severeImpact.currentlyInfected * infectionRate;
 };
 export default covid19ImpactEstimator;
