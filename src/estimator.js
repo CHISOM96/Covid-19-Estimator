@@ -53,18 +53,20 @@ const covid19ImpactEstimator = (data) => {
 
 
   /* const durationCheck = (periodType, duration) => {
-                    let infectionRate = Math.pow(2, Math.floor(duration / 3));
-                    if (periodType === 'weeks') {
-                        infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
-                    } else if (periodType === 'months') {
-                        infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
-                    }
-                    return infectionRate;
-                    };
-                    This also works */
+                      let infectionRate = Math.pow(2, Math.floor(duration / 3));
+                      if (periodType === 'weeks') {
+                          infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
+                      } else if (periodType === 'months') {
+                          infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
+                      }
+                      return infectionRate;
+                      };
+                      This also works */
 
 
   // impact.infectionsByRequestedtime = impact.currentlyInfected * infectionRate;
   // severeImpact.infectionsByRequestedtime = severeImpact.currentlyInfected * infectionRate;
+
+  return dataToBeReturned;
 };
 export default covid19ImpactEstimator;
