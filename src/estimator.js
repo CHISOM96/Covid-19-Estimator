@@ -1,3 +1,18 @@
+// Infection rate
+
+const durationCheck = (periodType, duration) => {
+  if (periodType === 'days') {
+    return duration;
+  }
+  if (periodType === 'weeks') {
+    return duration * 7;
+  }
+  if (periodType === 'months') {
+    return duration * 30;
+  }
+  return duration;
+};
+
 const covid19ImpactEstimator = (data) => {
   const {
     // region,
@@ -15,21 +30,6 @@ const covid19ImpactEstimator = (data) => {
   dataToBeReturned.data = data;
   // Challenge 1
 
-
-  // Infection rate
-
-  const durationCheck = (period, duration) => {
-    if (periodType === 'days') {
-      return duration;
-    }
-    if (periodType === 'weeks') {
-      return duration * 7;
-    }
-    if (periodType === 'months') {
-      return duration * 30;
-    }
-    return duration;
-  };
 
   const totalDays = durationCheck(periodType, timeToElapse);
   const periodFactor = Math.floor(totalDays / 3);
@@ -51,15 +51,15 @@ const covid19ImpactEstimator = (data) => {
 
 
   /* const durationCheck = (periodType, duration) => {
-            let infectionRate = Math.pow(2, Math.floor(duration / 3));
-            if (periodType === 'weeks') {
-                infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
-            } else if (periodType === 'months') {
-                infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
-            }
-            return infectionRate;
-            };
-            This also works */
+                let infectionRate = Math.pow(2, Math.floor(duration / 3));
+                if (periodType === 'weeks') {
+                    infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
+                } else if (periodType === 'months') {
+                    infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
+                }
+                return infectionRate;
+                };
+                This also works */
 
 
   // impact.infectionsByRequestedtime = impact.currentlyInfected * infectionRate;
