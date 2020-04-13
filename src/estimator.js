@@ -15,7 +15,7 @@ const durationCheck = (periodType, duration) => {
 
 const covid19ImpactEstimator = (data) => {
   const {
-    // region,
+    region,
     reportedCases,
     periodType,
     timeToElapse,
@@ -54,15 +54,15 @@ const covid19ImpactEstimator = (data) => {
 
 
   /* const durationCheck = (periodType, duration) => {
-                          let infectionRate = Math.pow(2, Math.floor(duration / 3));
-                          if (periodType === 'weeks') {
-                              infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
-                          } else if (periodType === 'months') {
-                              infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
-                          }
-                          return infectionRate;
-                          };
-                          This also works */
+                                let infectionRate = Math.pow(2, Math.floor(duration / 3));
+                                if (periodType === 'weeks') {
+                                    infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
+                                } else if (periodType === 'months') {
+                                    infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
+                                }
+                                return infectionRate;
+                                };
+                                This also works */
 
 
   // impact.infectionsByRequestedtime = impact.currentlyInfected * infectionRate;
@@ -73,11 +73,11 @@ const covid19ImpactEstimator = (data) => {
 
   const averageBedsOccupied = Math.floor(totalHospitalBeds * 0.65);
   const averageAvialableBeds = totalHospitalBeds - averageBedsOccupied;
-  // impact
+  // impact (challenge 2)
   const severeCasesByReqTimeImpact = Math.floor(impact.infectionsByRequestedTime * 0.15);
   const hospitalBedsByReqTimeImpact = averageAvialableBeds - severeCasesByReqTimeImpact;
 
-  // severe impact
+  // severe impact (challenge 2)
   const severeCasesByReqTimeSevere = Math.floor(severeImpact.infectionsByRequestedTime * 0.15);
   const hospitalBedByReqTimeSevere = averageAvialableBeds - severeCasesByReqTimeSevere;
 
@@ -86,6 +86,34 @@ const covid19ImpactEstimator = (data) => {
   dataToBeReturned.impact.hospitalBedsByRequestedTime = hospitalBedsByReqTimeImpact;
   dataToBeReturned.severeImpact.severeCasesByRequestedTime = severeCasesByReqTimeSevere;
   dataToBeReturned.severeImpact.hospitalBedsByRequestedTime = hospitalBedByReqTimeSevere;
+  // challenge 3
+  const dailyIncome = region.avgDailyIncomeInUSD;
+  const incomePopulation = region.avgDailyIncomePopulation;
+  // impact
+  const casesForICUByReqTimeImpact = Math.floor(impact.infectionsByRequestedTime * 0.05);
+  const casesForVentByReqTimeImpact = Math.floor(impact.infectionsByRequestedTime * 0.02);
+
+  // income
+  const infectedWithIncomeImpact = infectionsByRequestedTimeImpact * incomePopulation;
+  const dollarsInFlightImpact = Math.floor(infectedWithIncomeImpact * dailyIncome * totalDays);
+
+  // data to be returned impact
+  dataToBeReturned.impact.casesForICUByRequestedTime = casesForICUByReqTimeImpact;
+  dataToBeReturned.impact.casesForVentilatorsByRequestedTime = casesForVentByReqTimeImpact;
+  dataToBeReturned.impact.dollarsInFlight = dollarsInFlightImpact;
+
+  // severe impact
+  const casesForICUByReqTimeSevere = Math.floor(severeImpact.infectionsByRequestedTime * 0.05);
+  const casesForVentByReqTimeSevere = Math.floor(severeImpact.infectionsByRequestedTime * 0.02);
+
+  // income
+  const infectedWithIncomeSevere = infectionsByRequestedTimeSevere * incomePopulation;
+  const dollarsInFlightSevere = Math.floor(infectedWithIncomeSevere * dailyIncome * totalDays);
+
+  // data to be returned impact
+  dataToBeReturned.severeImpact.casesForICUByRequestedTime = casesForICUByReqTimeSevere;
+  dataToBeReturned.severeImpact.casesForVentilatorsByRequestedTime = casesForVentByReqTimeSevere;
+  dataToBeReturned.severeImpact.dollarsInFlight = dollarsInFlightSevere;
 
 
   return dataToBeReturned;
