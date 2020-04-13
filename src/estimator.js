@@ -54,15 +54,15 @@ const covid19ImpactEstimator = (data) => {
 
 
   /* const durationCheck = (periodType, duration) => {
-                                  let infectionRate = Math.pow(2, Math.floor(duration / 3));
-                                  if (periodType === 'weeks') {
-                                      infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
-                                  } else if (periodType === 'months') {
-                                      infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
-                                  }
-                                  return infectionRate;
-                                  };
-                                  This also works */
+                                    let infectionRate = Math.pow(2, Math.floor(duration / 3));
+                                    if (periodType === 'weeks') {
+                                        infectionRate = Math.pow(2, Math.floor(duration * 7 / 3));
+                                    } else if (periodType === 'months') {
+                                        infectionRate = Math.pow(2, Math.floor(duration * 30 / 3));
+                                    }
+                                    return infectionRate;
+                                    };
+                                    This also works */
 
 
   // impact.infectionsByRequestedtime = impact.currentlyInfected * infectionRate;
@@ -94,8 +94,8 @@ const covid19ImpactEstimator = (data) => {
   const casesForVentByReqTimeImpact = Math.floor(impact.infectionsByRequestedTime * 0.02);
 
   // income
-  const infectedWithIncomeImpact = infectionsByRequestedTimeImpact * incomePopulation;
-  const dollarsInFlightImpact = Math.floor(infectedWithIncomeImpact * dailyIncome);
+  const infectedWithIncomeImpact = infectionsByRequestedTimeImpact * incomePopulation * dailyIncome;
+  const dollarsInFlightImpact = Math.floor(infectedWithIncomeImpact / totalDays);
 
   // data to be returned impact
   dataToBeReturned.impact.casesForICUByRequestedTime = casesForICUByReqTimeImpact;
@@ -107,8 +107,8 @@ const covid19ImpactEstimator = (data) => {
   const casesForVentByReqTimeSevere = Math.floor(severeImpact.infectionsByRequestedTime * 0.02);
 
   // income
-  const infectedWithIncomeSevere = infectionsByRequestedTimeSevere * incomePopulation;
-  const dollarsInFlightSevere = Math.floor(infectedWithIncomeSevere * dailyIncome);
+  const infectedWithIncomeSevere = infectionsByRequestedTimeSevere * incomePopulation * dailyIncome;
+  const dollarsInFlightSevere = Math.floor(infectedWithIncomeSevere / totalDays);
 
   // data to be returned impact
   dataToBeReturned.severeImpact.casesForICUByRequestedTime = casesForICUByReqTimeSevere;
