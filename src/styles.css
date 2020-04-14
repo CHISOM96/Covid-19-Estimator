@@ -6,6 +6,7 @@
 	 font-style: normal;
 	 src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v10/va9E4kDNxMZdWfMOD5VvmojLazX3dGTP.woff2) format('woff2');
 	font-display: swap;
+	color: #555;
 }
 *{
 	margin: 0;
@@ -13,10 +14,10 @@
 	box-sizing: border-box;
 }
 
-html{
+/*html{
 	font: normal 16px sans-serif;
 	color: #555;
-}
+}*/
 
 ul, nav{
 	list-style: none;
