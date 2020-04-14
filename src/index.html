@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Estimate Covid-19 Impact.">
+	<meta name="robots" content="nofollow">
 	<title>COVID-19 Estimator</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
@@ -20,15 +22,17 @@
 			<a href="#"></a>
 		</h2>
 		<nav>
-			<li>
-				<a href="#">Home</a>
-			</li>
-			<li>
-				<a href="http://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">Prevention</a>
-			</li>
-			<li>
-				<a href="http://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">WHO advice</a>
-			</li>
+			<ul>
+				<li>
+					<a href="#">Home</a>
+				</li>
+				<li>
+					<a href="http://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">Prevention</a>
+				</li>
+				<li>
+					<a href="http://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">WHO advice</a>
+				</li>
+			</ul>
 		</nav>
 	</header>
 
@@ -52,20 +56,20 @@
 						<span class="icon-case">
 							<i class="fa fa-users"></i>
 						</span>
-						<input type="number" name="Population" placeholder="Enter Population" id="data-population" min="1" required>
+						<input type="number" name="population" placeholder="Enter Population" id="data-population" min="1" required>
 					</div>
 				</div>
 				<div class="row">
 
 					<div class="col-25">
-						<label for="Time To Elapse">Time To Elapse</label>
+						<label for="time-to-elapse">Time To Elapse</label>
 					</div>
 
 					<div class="col-75">
 						<span class="icon-case">
 							<i class="fa fa-clock-o"></i>
 						</span>
-						<input type="number" name="Time To Elapse" placeholder="Enter Time To Elapse" id="data-time-to-elapse" min="1" required>
+						<input type="number" name="time-to-elapse" placeholder="Enter Time To Elapse" id="data-time-to-elapse" min="1" required>
 						<select required id="data-period-type">
 							<option value="">--Please choose an option--</option>
 							<option value="days">Day(s)</option>
@@ -76,13 +80,13 @@
 				</div>
 				<div class="row">
 					<div class="col-25">
-						<label for="Reported cases">Reported Cases</label>
+						<label for="reported-cases">Reported Cases</label>
 					</div>
 					<div class="col-75">
 						<span class="icon-case">
 							<i class="fa fa-hospital-o"></i>
 						</span>
-						<input type="number" name="Reported Cases" placeholder="enter reported cases" id=" data-reported-cases" min="1" required>
+						<input type="number" name="reported-cases" placeholder="enter reported cases" id=" data-reported-cases" min="1" required>
 					</div>
 				</div>
 				<div class=row>
