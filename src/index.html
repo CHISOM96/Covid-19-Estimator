@@ -56,8 +56,8 @@
 						<span class="icon-case">
 							<i class="fa fa-users"></i>
 						</span>
+						<label aria-hidden="true" class="hidden" for="population">Population</label>
 						<input type="number" name="population" placeholder="Enter Population" id="data-population" min="1" required>
-						<label class="hidden" for="population">Population</label>
 					</div>
 				</div>
 				<div class="row">
@@ -70,8 +70,8 @@
 						<span class="icon-case">
 							<i class="fa fa-clock-o"></i>
 						</span>
+						<label aria-hidden="true" class="hidden" for="time-to-elapse">Time To Elapse</label>
 						<input type="number" name="time-to-elapse" placeholder="Enter Time To Elapse" id="data-time-to-elapse" min="1" required>
-						<label class="hidden" for="time-to-elapse">Time To Elapse</label>
 						<select required id="data-period-type">
 							<option value="">--Please choose an option--</option>
 							<option value="days">Day(s)</option>
@@ -88,8 +88,8 @@
 						<span class="icon-case">
 							<i class="fa fa-hospital-o"></i>
 						</span>
+						<label aria-hidden="true" class="hidden" for="reported-cases">Reported Cases</label>
 						<input type="number" name="reported-cases" placeholder="enter reported cases" id=" data-reported-cases" min="1" required>
-						<label class="hidden" for="reported-cases">Reported Cases</label>
 					</div>
 				</div>
 				<div class=row>
@@ -97,12 +97,14 @@
 						<label for="Total Hospital Beds">Total Hospital Beds</label>
 					</div>
 					<div class="col-75">
-						<span class="icon-case">
-							<i class="fa fa-bed"></i>
+						<span class="row">
+							<span class="icon-case">
+								<i class="fa fa-bed"></i>
+							</span>
+							<label aria-hidden="true" class="hidden" for="Total Hospital Beds">Total Hospital Beds</label>
+							<input type="number" name="Total Hospital Beds" placeholder="Number of Hospital beds" id="data-total-hospital-beds" min="1"
+							 required>
 						</span>
-						<input type="number" name="Total Hospital Beds" placeholder="Number of Hospital beds" id="data-total-hospital-beds" min="1"
-						 required>
-						<label class="hidden" for="Total Hospital Beds">Total Hospital Beds</label>
 					</div>
 				</div>
 

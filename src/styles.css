@@ -411,6 +411,8 @@ label{
   }
   i {
 	color:#555;
+	line-height:60px;
+	position: relative;
   }
   
   /*hide labels*/
