@@ -412,3 +412,8 @@ label{
   i {
 	color:#555;
   }
+  
+  /*hide labels*/
+  .label{
+	display:none;
+  }
