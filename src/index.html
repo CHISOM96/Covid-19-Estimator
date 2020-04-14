@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Estimate Covid-19 Impact.">
+	<meta name="robots" content="nofollow">
+	<title>COVID-19 Estimator</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="estimator.js"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<h2>
+			<a href="#"></a>
+		</h2>
+		<nav>
+			<ul>
+				<li>
+					<a href="#">Home</a>
+				</li>
+				<li>
+					<a href="http://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">Prevention</a>
+				</li>
+				<li>
+					<a href="http://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">WHO advice</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+
+	<section class="hero">
+		<div class="background-image" style="background-image: url(assets/img/covid.jpg);"></div>
+		<h1>Covid-19 Impact Estimator</h1>
+		<h3>This application estimates the impact of the novel virus on the economy and healthcare system using user inputs.</h3>
+		<a href="#estimator" class="btn">Get Started</a>
+	</section>
+
+
+	<section id="estimator">
+		<div "form-group">
+			<form>
+				<div class="row">
+					<div class="col-25">
+						<label for="data-population">Population</label>
+					</div>
+					<div class="col-75">
+						<span class="icon-case">
+							<i class="fa fa-users"></i>
+						</span>
+
+						<input type="number" name="population" placeholder="Enter Population" id="data-population" min="1" required>
+					</div>
+				</div>
+				<div class="row">
+
+					<div class="col-25">
+						<label for="data-time-to-elapse">Time To Elapse</label>
+					</div>
+
+					<div class="col-75">
+						<span class="icon-case">
+							<i class="fa fa-clock-o"></i>
+						</span>
+
+						<input type="number" name="time-to-elapse" placeholder="Enter Time To Elapse" id="data-time-to-elapse" min="1" required>
+						<label class="hidden" for="data-period-type">Time To Elapse</label>
+						<select required id="data-period-type">
+							<option value="">--Please choose an option--</option>
+							<option value="days">Day(s)</option>
+							<option value="weeks">Week(s)</option>
+							<option value="months">Month(s)</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="data-reported-cases">Reported Cases</label>
+					</div>
+					<div class="col-75">
+						<span class="icon-case">
+							<i class="fa fa-hospital-o"></i>
+						</span>
+
+						<input type="number" name="reported-cases" placeholder="enter reported cases" id="data-reported-cases" min="1" required>
+					</div>
+				</div>
+				<div class=row>
+					<div class="col-25">
+						<label for="data-total-hospital-beds">Total Hospital Beds</label>
+					</div>
+					<div class="col-75">
+
+						<span class="icon-case">
+							<i class="fa fa-bed"></i>
+						</span>
+						<input type="number" name="Total Hospital Beds" placeholder="Number of Hospital beds" id="data-total-hospital-beds" min="1"
+						 required>
+
+					</div>
+				</div>
+
+				<button id="data-go-estimate" class="btn">Submit</button>
+			</form>
+		</div>
+	</section>
+
+
+
+
+
+
+	<footer>
+		<ul>
+			<li>
+				<a href="https://twitter.com/Chisom_MN">
+					<i class="fa fa-twitter-square"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://github.com/CHISOM96">
+					<i class="fa fa-github-square"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/chisomnnabuihe">
+					<i class="fa fa-linkedin-square"></i>
+				</a>
+			</li>
+		</ul>
+
+	</footer>
+
+</body>
+
+</html>
