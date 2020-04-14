@@ -414,6 +414,6 @@ label{
   }
   
   /*hide labels*/
-  .label{
+  .hidden{
 	display:none;
   }
