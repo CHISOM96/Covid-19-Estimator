@@ -1,7 +1,12 @@
 /*-------------
  	General
 -------------*/
-
+@font-face{
+	font-family: 'Fira Sans';
+	 font-style: normal;
+	 src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v10/va9E4kDNxMZdWfMOD5VvmojLazX3dGTP.woff2) format('woff2');
+	font-display: swap;
+}
 *{
 	margin: 0;
 	padding: 0;
