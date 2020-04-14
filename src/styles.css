@@ -116,7 +116,7 @@ header h2{
 	font-family: 'Fira Sans', sans-serif;
 }
 
-header nav{
+header nav ul{
 	display: flex;
 }
 
