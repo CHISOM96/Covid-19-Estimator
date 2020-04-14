@@ -38,7 +38,7 @@ a.btn{
 	color: #fff;
 	border-radius: 4px;
 	text-transform: uppercase;
-	background-color: #2196F3;
+	background-color: #0c751e;
 	font-weight: 800;
 	text-align: center;
 	width: 40em;
@@ -204,6 +204,7 @@ header nav li:last-child{
 
 .hero a.btn{
 	padding: 20px 46px;
+	background-color: #0c751e;
 }
 
 @media (max-width: 800px){
@@ -368,7 +369,7 @@ input, select {
   cursor: pointer;
   margin-top: 40px;
   font-size: 18px;
-  background-color: #2196F3;
+  background-color: #0c751e;
 }
 
 label{
